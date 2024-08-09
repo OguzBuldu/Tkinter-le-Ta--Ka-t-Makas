@@ -1,0 +1,107 @@
+import tkinter as tk
+import random
+
+#Pencere Özellikleri
+root = tk.Tk()
+root.title("Taş Kağıt Makas")
+root.geometry("500x500")
+
+#Değişkenler:
+kullanıcı = 0
+bilgisayar = 0
+
+
+#Pencerenin İçinde Bulunan Yazılar:
+başlık = tk.Label(root,text="Taş Kağıt Makas Oynuna Hoşgeldiniz.",font="Ariel 12 bold")
+başlık.pack()
+yazı = tk.Label(root,text="Lütfen Aşşağıdaki Butonlardan Birini Seçiniz.",font="Ariel 9 bold")
+yazı.pack()
+
+
+
+
+
+
+
+
+
+#Taş Buttonuna Basıldığında Random Kütüphanesinden Faydalanılarak İzlencek Yollar
+def tas():
+    taş2 = tk.Label(root,text="Taşı Seçtiniz").pack() #Yapılan Seçimi Yazması İçin;
+    bilgisayar = random.choice(["taş","kağıt","makas"]) #Random Kütüphanesinden FaydalnılaraK Listeden Birini Seçmesi İçin
+    if bilgisayar == "taş": # Eğer Random Taşı Seçerse;
+        bilgisayar2 = tk.Label(root,text="Bilgisayar Taş Seçti")
+        bilgisayar2.pack()
+        yazı = tk.Label(root,text="Durum Berabere...")
+        yazı.pack()
+
+    elif bilgisayar == "kağıt": # Kağıdı Seçerse;
+        bilgisayar2 = tk.Label(root,text="Kağıt Taşı Sarar, BİLGİSAYAR KAZANDI")
+        bilgisayar2.pack()
+        yazı = tk.Label(root,text="Siz Kazandınız")
+        yazı.pack()
+
+    elif bilgisayar == "makas": # Makası Seçerse;
+        bilgisayar2 = tk.Label(root,text="Bilgisayar Makas Seçti")
+        bilgisayar2.pack()
+        yazı = tk.Label(root,text="Taş, Makası Kırar, SİZ KAZANDINIZ.")
+        yazı.pack()
+
+taş = tk.Button(root,text="Taş",font="Ariel 9 bold",command=tas) # Taş Buttonu
+taş.pack() #Taş Buttonu Gözükmesi İçin
+
+#Makas Buttonuna Basıldığında;
+def makas1():
+    makas2 = tk.Label(root,text="Makası Seçtiniz").pack()#Yapılan Seçimi Yazması İçin;
+    bilgisayar = random.choice(["taş","kağıt","makas"])#Random Kütüphanesinden FaydalnılaraK Listeden Birini Seçmesi İçin
+    if bilgisayar == "taş":
+        bilgisayar2 = tk.Label(root,text="Bilgisayar Taş Seçti")# Eğer Random Taşı Seçerse;
+        bilgisayar2.pack()
+
+        yazı = tk.Label(root,text="Taş Makası Kırar, BİLGİSAYAR KAZANDI")
+        yazı.pack()
+
+    elif bilgisayar == "kağıt":# Kağıdı Seçerse;
+        bilgisayar2 = tk.Label(root,text="Bilgisayar Kağıt Seçti")
+        bilgisayar2.pack()
+
+        yazı = tk.Label(root,text="Makas Kağıdı Keser, SİZ KAZANDINIZ.")
+        yazı.pack()
+
+    elif bilgisayar == "makas":
+        bilgisayar2 = tk.Label(root,text="Bilgisayar Makas Seçti")# Makası Seçerse;
+        bilgisayar2.pack()
+        yazı = tk.Label(root,text="Durum Berabere...")
+        yazı.pack()
+
+makas = tk.Button(root,text="Makas",font="Ariel 9 bold",command=makas1) #Makas Buttonu
+makas.pack() #Makas Buttonu Gözükmesi İçin
+
+#Kağıt Buttonuna Basıldığında;
+def kagit():
+    kağıt2 = tk.Label(root,text="Kağıt Seçtiniz").pack()#Yapılan Seçimi Yazması İçin;
+    bilgisayar = random.choice(["taş","kağıt","makas"])#Random Kütüphanesinden FaydalnılaraK Listeden Birini Seçmesi İçin
+    if bilgisayar == "taş":
+        bilgisayar2 = tk.Label(root,text="Bilgisayar Taş Seçti")# Eğer Random Taşı Seçerse;
+        bilgisayar2.pack()
+        yazı = tk.Label(root,text="Kağıt Taşı Sarar, SİZ KAZANDINIZ")
+        yazı.pack()
+
+    elif bilgisayar == "makas":
+        bilgisayar2 = tk.Label(root,text="Bilgisayar Makas Seçti")# Makası Seçerse;
+        bilgisayar2.pack()
+        yazı = tk.Label(root,text="Makas Kağıdı Keser, BİLGİSİYAR KAZANDI")
+        yazı.pack()
+
+    elif bilgisayar == "kağıt":
+        bilgisayar2 = tk.Label(root,text="Bilgisayar Kağıt Seçti")# Kağıdı Seçerse;
+        bilgisayar2.pack()
+        yazı = tk.Label(root,text="Durum Berabere...")
+        yazı.pack()
+
+kağıt = tk.Button(root,text="Kağıt",font="Ariel 9 bold",command=kagit) #Kağıt Buttonu
+kağıt.pack()# KağıtButtonu Gözükmesi İçin
+
+
+#Pencere Açık Olması İçin
+root.mainloop()
